@@ -1,0 +1,86 @@
+<project name="Code Backup Without Folders" default="retrieve" basedir="." xmlns:sf="antlib:com.salesforce">
+    <property file="build.properties"/>
+    <property environment="env"/>
+  
+  <target name="Deploy">
+<echo message = "${Sandbox2.username}" />  
+  <sf:deploy
+            username="${Sandbox2.username}"
+            password="${Sandbox2.password}"
+            serverurl="${sfSandbox.serverurl}"
+            deployRoot="Demopkg"
+            testLevel="RunSpecifiedTests" rollbackOnError="true" >
+	  <runTest>HelloWorldTest</runTest>
+	  </sf:deploy>
+  </target>
+  
+  <target name="retrieve">
+  <echo message = "${Sandbox1.username}" />
+      <sf:retrieve username="${Sandbox1.username}"
+                   password="${Sandbox1.password}"
+                   serverurl="${sfSandbox.serverurl}"
+          retrieveTarget="Demopkg"
+           unpackaged="DemoPkg/package.xml"/>
+	
+	</target>
+	<!-- Git Macro Definitions -->
+	<target name="src-cleanup">
+	<delete dir="DemoPkg" />	
+	<mkdir dir="DemoPkg" />
+	</target>
+	
+	<target name="git-perm">
+	<exec executable="git">
+	<arg value="config" />
+	<arg value="--global" />
+	<arg value="core.autocrlf" />
+	<arg value="false" />
+	</exec>
+	</target>
+	
+	<target name="git-add-all">
+	<exec executable="git">
+	<arg value="add" />
+	<arg value="-A" />
+	<arg value="DemoPkg/" />
+	</exec>
+	</target>
+<target name="git-commit">
+	<exec executable="git">
+	<arg value="commit" />
+	<arg value="-m" />
+	<arg value="auto commit" />
+	</exec>
+</target>
+<target name="git-push1">
+	<exec executable="git">
+	<arg value="remote" />
+	<arg value="add" />
+	<arg value="origin" />
+	<arg value="https://github.com/madhu3101/DemoClass" />
+	</exec>
+</target>
+	<target name="git-push">
+	<exec executable="git">
+	<arg value="push" />
+	<arg value="origin" />
+	<arg value="master" />
+	</exec>
+</target>
+	<target name="git-user1">
+	<exec executable="git">
+	<arg value="config" />
+	<arg value="--global" />
+	<arg value="user.name" />
+	<arg value="madhu3101" />
+	</exec>
+</target>
+<target name="git-user2">
+	<exec executable="git">
+	<arg value="config" />
+	<arg value="--global" />
+	<arg value="user.email" />
+	<arg value="madhavylatha03@gmail.com" />
+	</exec>
+</target>
+ </project>
