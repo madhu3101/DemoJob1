@@ -17,7 +17,7 @@
   <target name="retrieveCode">
 	<echo message = "${Sandbox1.username}" />
 		<!-- Retrieve the contents listed in the file codepkg/package.xml into the codepkg directory -->
-		<sf:retrieve username="${Sandbox1.username}" password="${Sandbox1.password}" sessionId="${Sandbox1.sessionId}" serverurl="${Sandbox1.serverurl}" maxPoll="${Sandbox1.maxPoll}" retrieveTarget="codepkg" unpackaged="DemoPkg/package.xml"/>
+		<sf:retrieve username="${Sandbox1.username}" password="${Sandbox1.password}" sessionId="${Sandbox1.sessionId}" serverurl="${Sandbox1.serverurl}" retrieveTarget="codepkg" unpackaged="DemoPkg/package.xml"/>
 	</target>
 	
 	<!-- Git Macro Definitions -->
