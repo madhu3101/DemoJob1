@@ -23,7 +23,7 @@
            unpackaged="DemoPkg/package.xml"/>
     </target>
 	
-	<!-- Git Macro Definitions -->
+	<!--- Git Macro Definitions -->
 	<target name="src-cleanup">
 	<delete dir="DemoPkg" />	
 	<mkdir dir="DemoPkg" />
