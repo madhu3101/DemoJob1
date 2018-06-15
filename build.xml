@@ -52,7 +52,7 @@
 	<arg value="auto commit" />
 	</exec>
 </target>
-<!---- <target name="git-push1">
+<!-- <target name="git-push1">
 	<exec executable="git">
 	<arg value="remote" />
 	<arg value="add" />
