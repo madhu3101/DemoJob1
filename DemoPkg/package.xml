@@ -9,5 +9,10 @@
         <members>Account.New account_Alert</members>
         <name>WorkflowRule</name>
     </types>
+    <types>
+        <!-- <members>MyCustomObject__c</members> -->
+        <members>MyHelloWorldObject__c</members>
+        <name>CustomObject</name>
+    </types>
     <version>41.0</version>
 </Package>
